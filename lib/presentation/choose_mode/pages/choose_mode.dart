@@ -6,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
-import 'package:spotify/main.dart';
 import 'package:spotify/presentation/choose_mode/bloc/theme_cubit.dart';
 
 class ChooseMode extends StatelessWidget {
