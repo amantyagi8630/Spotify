@@ -31,9 +31,8 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
         textStyle: const TextStyle(
-          fontSize: 10,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: Colors.white,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
