@@ -27,9 +27,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future<void> redirect() async {
-    debugPrint('1....');
     await Future.delayed(const Duration(seconds: 2));
-    debugPrint('2....');
     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const GetStartedPage()));
     if (mounted) {
       Navigator.pushReplacement(
@@ -37,6 +35,5 @@ class _SplashPageState extends State<SplashPage> {
         MaterialPageRoute(builder: (context) => const GetStartedPage()),
       );
     }
-    debugPrint('3....');
   }
 }
