@@ -21,7 +21,7 @@ class BasicAppbar extends StatelessWidget {
           child: Icon(
             Icons.arrow_back_ios_new_rounded,
             size: 25,
-            color: context.isDarkMode ? Colors.white : Colors.black,
+            color: context.isDarkMode ? Colors.white : const Color.fromARGB(255, 68, 67, 67),
           ),
         ),
       ),
