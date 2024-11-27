@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
+import 'package:spotify/presentation/auth/pages/signup.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -11,21 +12,16 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BasicAppbar(
-        title: SvgPicture.asset(
-          AppVectors.logo,
-          width: 40,
-          height: 40,
-        ),
+        title: SvgPicture.asset(AppVectors.logo, width: 40, height: 40),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 40),
             _registerText(),
             const SizedBox(height: 50),
-            /* _fullNameField(context),
-            const SizedBox(height: 20), */
             _emailField(context),
             const SizedBox(height: 20),
             _passwordField(context),
@@ -37,7 +33,7 @@ class SignInPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: _signInText(),
+      bottomNavigationBar: _signInText(context),
     );
   }
 
@@ -49,16 +45,6 @@ class SignInPage extends StatelessWidget {
         fontSize: 25,
       ),
       textAlign: TextAlign.center,
-    );
-  }
-
-  Widget _fullNameField(BuildContext context) {
-    return TextField(
-      decoration: const InputDecoration(
-        hintText: 'Full Name',
-      ).applyDefaults(
-        Theme.of(context).inputDecorationTheme,
-      ),
     );
   }
 
@@ -82,7 +68,7 @@ class SignInPage extends StatelessWidget {
     );
   }
 
-  Widget _signInText() {
+  Widget _signInText(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: Row(
@@ -96,7 +82,9 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const Signup()));
+            },
             child: const Text(
               'Register Now',
             ),

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
+import 'package:spotify/presentation/auth/pages/signin.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});
@@ -11,17 +12,14 @@ class Signup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BasicAppbar(
-        title: SvgPicture.asset(
-          AppVectors.logo,
-          width: 40,
-          height: 40,
-        ),
+        title: SvgPicture.asset(AppVectors.logo, width: 40, height: 40),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 40),
             _registerText(),
             const SizedBox(height: 50),
             _fullNameField(context),
@@ -37,7 +35,7 @@ class Signup extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: _signInText(),
+      bottomNavigationBar: _signInText(context),
     );
   }
 
@@ -82,7 +80,7 @@ class Signup extends StatelessWidget {
     );
   }
 
-  Widget _signInText() {
+  Widget _signInText(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: Row(
@@ -96,7 +94,9 @@ class Signup extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const SignInPage()));
+            },
             child: Text(
               'Sign In',
             ),
